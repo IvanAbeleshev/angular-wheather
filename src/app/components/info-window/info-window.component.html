@@ -1,0 +1,12 @@
+<div class="bg-white/50 rounded-xl shadow-lg p-5">
+  <h2 class="text-center font-semibold text-lg my-5">Enter the city name:</h2>
+  <form (submit)="$event.preventDefault()">
+    <input 
+      [ngModel]="cityValue"
+      (ngModelChange)="changeCitiesName($event)"
+      [ngModelOptions]="{ standalone: true }"
+      type="text" 
+      class="rounded-md focus:outline-none border focus:bg-gray" 
+    >
+  </form>
+</div>
