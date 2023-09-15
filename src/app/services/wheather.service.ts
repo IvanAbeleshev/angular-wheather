@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
-import { formatDate } from '@angular/common'
-import { Observable } from 'rxjs'
+import { HttpClient, HttpParams } from '@angular/common/http'
+import { Observable, catchError, of } from 'rxjs'
 import { IForecast } from '../models/forecast.model'
 
 @Injectable({
@@ -20,6 +19,7 @@ export class WheatherService {
       'apikey': this.APIKey
     }})
 
+    //need to add some catch error handler
     return this.http.get<IForecast>(`${this.host}/realtime`, {params: queryParams}).pipe()
   }
 }

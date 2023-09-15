@@ -1,12 +1,17 @@
-<div class="bg-white/50 rounded-xl shadow-lg p-5">
+<div class="bg-white/50 min-w-[500px] rounded-xl shadow-lg p-5 relative">
+  <nz-spin nzSimple class="absolute right-2 top-2" *ngIf="loading&&cityValue.length>3 "></nz-spin> 
   <h2 class="text-center font-semibold text-lg my-5">Enter the city name:</h2>
   <form (submit)="$event.preventDefault()">
     <input 
       [ngModel]="cityValue"
-      (ngModelChange)="changeCitiesName($event)"
+      (change)="changeCityName($event)"
       [ngModelOptions]="{ standalone: true }"
       type="text" 
-      class="rounded-md focus:outline-none border focus:bg-gray" 
+      class="rounded-md focus:outline-none border focus:bg-gray w-full text-xl" 
     >
   </form>
+  <app-weather-condition *ngIf="currentForecast"
+    [cityLocation]="currentForecast.location"
+    [wheatherCondition]="currentForecast.data.values"
+  ></app-weather-condition>
 </div>

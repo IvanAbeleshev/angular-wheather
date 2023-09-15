@@ -21,15 +21,17 @@ export interface IWheatherCondition{
   windSpeed:number
 }
 
+export interface ICityLocation{
+  lat:number,
+  lon:number,
+  name:string,
+  type:string
+}
+
 export interface IForecast{
   data:{
     time:string,
     values:IWheatherCondition
   },
-  location:{
-    lat:number,
-    lon:number,
-    name:string,
-    type:string
-  }
+  location:ICityLocation
 }

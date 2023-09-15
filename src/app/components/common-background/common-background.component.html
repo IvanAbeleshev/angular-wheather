@@ -1,8 +1,9 @@
 <div class="w-screen h-screen flex justify-center items-center">
   <img 
-    class="absolute w-full h-full object-cover z-0" 
-    src="/assets/img/backgrounds/cloudy-sky.jpg" 
+    class="transition-all duration-500 absolute w-full h-full object-cover z-0" 
+    [ngClass]="changeBg?'opacity-0':'opacity-100'"
+    [src]="src" 
     alt="background"
   >
-  <app-info-window class="z-10"></app-info-window>
+  <ng-content></ng-content>
 </div>

@@ -1,0 +1,18 @@
+<div class="mt-5 max-w-full text-xl">
+  <h2 class="whitespace-break-spaces">{{cityLocation.name}}</h2>
+  <div class="my-2 flex justify-between gap-5">
+    <span>Current temprature: <strong>{{wheatherCondition.temperature | number:'1.0-1'}}</strong></span>
+    <span>Temprature apparent: <strong>{{wheatherCondition.temperatureApparent | number:'1.0-1'}}</strong></span>
+  </div>
+  <div class="my-2 flex justify-between gap-2 items-center">
+    <span>
+      Wind speed:  
+      <strong>{{wheatherCondition.windSpeed | number:'1.0-1'}}</strong>
+    </span>
+    <span class="flex items-center gap-5">
+      Wind direction:  
+      <!-- <strong>{{wheatherCondition.windDirection | number:'1.0-1'}}</strong> -->
+      <app-wind-direction [windDirection]="wheatherCondition.windDirection"></app-wind-direction>
+    </span>
+  </div>
+</div>
