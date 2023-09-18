@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { IForecast } from 'src/app/models/forecast.model'
 import { BackgroundSourceService } from 'src/app/services/store/background-source.service'
+import { ErrorHandlerService } from 'src/app/services/store/error-handler.service'
 import { WheatherService } from 'src/app/services/wheather.service'
 
 @Component({
@@ -14,10 +15,16 @@ export class InfoWindowComponent implements OnInit{
   constructor(
     private wheatherService: WheatherService,
     private bgSource: BackgroundSourceService,
+    private errorHandler: ErrorHandlerService
   ){}
 
   ngOnInit(): void {
-    //const result = this.wheatherService.getWheather().subscribe()
+    this.errorHandler.getErrorMessage().subscribe(
+      result=>{
+        if(result!=='')
+          this.loading = false
+      }
+    )
   }
 
   changeCityName=(event:Event)=>{

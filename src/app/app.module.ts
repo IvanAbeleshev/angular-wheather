@@ -12,8 +12,10 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { WeatherConditionComponent } from './components/weather-condition/weather-condition.component';
 import { WindDirectionComponent } from './components/wind-direction/wind-direction.component';
+import { ErrorNotificationComponent } from './components/error-notification/error-notification.component';
 
 registerLocaleData(en);
 
@@ -23,7 +25,8 @@ registerLocaleData(en);
     CommonBackgroundComponent,
     InfoWindowComponent,
     WeatherConditionComponent,
-    WindDirectionComponent
+    WindDirectionComponent,
+    ErrorNotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ registerLocaleData(en);
     FormsModule,
     BrowserAnimationsModule,
     NzSpinModule, 
+    NzNotificationModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

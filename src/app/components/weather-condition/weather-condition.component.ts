@@ -8,4 +8,6 @@ import { ICityLocation, IWheatherCondition } from 'src/app/models/forecast.model
 export class WeatherConditionComponent {
   @Input() wheatherCondition:IWheatherCondition
   @Input() cityLocation:ICityLocation
+
+  
 }
